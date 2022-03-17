@@ -14,9 +14,10 @@ def key_press(event, box_object, gui_object):
             guess_string += event.char
             gui_object[position[0]][position[1]].configure(text=event.char)
             position = [position[0], position[1]+1]
-    elif event.keysym == "Escape":
-        guess_string = ""
-        position = [position[0], 0]
+    elif event.keysym == "BackSpace":
+        guess_string = guess_string[:-1]
+        gui_object[position[0]][position[1]-1].configure(text="")
+        position = [position[0], position[1]-1]
     elif event.keysym == "Return":
         test_row(box_object, len(WORD), guess_string)
         guess_string = ""
