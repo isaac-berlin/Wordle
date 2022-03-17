@@ -30,6 +30,6 @@ def make_object_columns(num_of_col: int, length_of_rows: int, correct_word: str)
     return arr
 
 
-def test_row(object_to_test: list, row_num: int, word_to_test: str):
-    for i in range(row_num):
-        object_to_test[row_num - 1][i].check(word_to_test)
+def test_row(object_to_test: list, row_len: int, word_to_test: str):
+    for i in range(row_len):
+        object_to_test[row_len - 1][i].check(word_to_test)

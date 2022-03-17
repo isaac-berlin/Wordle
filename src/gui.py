@@ -1,14 +1,13 @@
 from tkinter import *
 from core import *
 
-position = [0, 0]
 
 window = Tk()
 window.title("Wordle")
 window.configure(background="grey")
-window.geometry("500x500")
-window.minsize(500, 500)
-window.maxsize(500, 500)
+window.geometry("500x700")
+window.minsize(500, 700)
+window.maxsize(500, 700)
 
 
 def make_gui_row(col_len: int, row_num: int) -> list:
@@ -19,9 +18,10 @@ def make_gui_row(col_len: int, row_num: int) -> list:
     return output_list
 
 
-def make_gui_board(col_len: int, row_len: int, correct_word: str) -> tuple:
+def make_gui_board(col_len: int, row_len: int) -> list:
     output_list_gui = []
-    output_list_object = make_object_columns(col_len, row_len, correct_word)
     for i in range(col_len):
         output_list_gui.append(make_gui_row(row_len, i))
-    return output_list_gui, output_list_object
+    return output_list_gui
+
+
