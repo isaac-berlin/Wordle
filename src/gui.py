@@ -10,19 +10,19 @@ window.geometry("500x700")
 window.resizable(False, False)
 
 
-#Label(window, text="Wordle", bg="grey", font=('Comic Sans', 10, 'bold')).pack(anchor=N)
+Label(text="Wordle", fg="black", bg="grey", font=("MSSerif", 50)).place(anchor='n', relx=.5, rely=.1)
 
 
 def make_gui_row(col_len: int, row_num: int) -> list:
     output_list = []
     for i in range(col_len):
-        output_list.append(Label(text="", fg="black", width=9, height=4, background="white"))
+        output_list.append(Label(text="test", font="MSSerif", fg="black", background="white"))
     return output_list
 
 
 def align_gui(col_len: int, row_num: int, unaligned_list: list):
     for i in range(col_len):
-        unaligned_list[i].grid(column=i, row=row_num+1, padx=(12, 12), pady=(10, 10))
+        unaligned_list[i].place(x=(90*i)+35, y=((400//5)*row_num)+200, height=70, width=(500//col_len)-30)
 
 
 def make_gui_board(col_len: int, row_len: int) -> list:
