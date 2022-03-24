@@ -19,7 +19,9 @@ def key_press(event, box_object, gui_object):
         gui_object[position[0]][position[1]-1].configure(text="")
         position = [position[0], position[1]-1]
     elif event.keysym == "Return":
-        test_row(box_object, len(WORD), guess_string)
+        for i in range(len(guess_string)):
+            box_object[position[0]][i].check(guess_string)
+            gui_object[position[0]][i].config(bg=box_object[position[0]][i].color)
         guess_string = ""
         position = [position[0]+1, 0]
 
@@ -28,8 +30,6 @@ def main():
     window.protocol("WM_DELETE_WINDOW", lambda: window.destroy())
     board_gui = make_gui_board(6, 5)
     board_object = make_object_columns(6, 5, WORD)
-    print(board_gui)
-    print(board_object)
     window.bind_all('<Key>', lambda event, arg1=board_object, arg2=board_gui: key_press(event, arg1, arg2))
     window.mainloop()
 

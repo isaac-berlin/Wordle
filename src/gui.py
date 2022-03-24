@@ -16,7 +16,7 @@ Label(text="Wordle", fg="black", bg="grey", font=("MSSerif", 50)).place(anchor='
 def make_gui_row(col_len: int, row_num: int) -> list:
     output_list = []
     for i in range(col_len):
-        output_list.append(Label(text="test", font="MSSerif", fg="black", background="white"))
+        output_list.append(Label(text="", font="MSSerif", fg="black", background="white"))
     return output_list
 
 
