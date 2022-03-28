@@ -32,5 +32,3 @@ def make_gui_board(col_len: int, row_len: int) -> list:
         align_gui(row_len, i, row)
         output_list_gui.append(row)
     return output_list_gui
-
-

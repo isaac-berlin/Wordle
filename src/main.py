@@ -1,7 +1,12 @@
 from gui import *
 import random
 
-WORD = "hello"
+word_line = random.randint(0, 2314)
+with open("../words.txt") as fp:
+    for line, word in enumerate(fp):
+        if line == word_line:
+            WORD = word[:-1]
+            print(WORD)
 position = [0, 0]  # y, x
 guess_string = ""
 
@@ -28,8 +33,8 @@ def key_press(event, box_object, gui_object):
 
 def main():
     window.protocol("WM_DELETE_WINDOW", lambda: window.destroy())
-    board_gui = make_gui_board(6, 5)
-    board_object = make_object_columns(6, 5, WORD)
+    board_gui = make_gui_board(6, len(WORD))
+    board_object = make_object_columns(6, len(WORD), WORD)
     window.bind_all('<Key>', lambda event, arg1=board_object, arg2=board_gui: key_press(event, arg1, arg2))
     window.mainloop()
 
