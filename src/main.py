@@ -20,7 +20,7 @@ def key_press(event, box_object, gui_object):
     if event.char == event.keysym and playing_game:
         if len(guess_string) < len(WORD):
             guess_string += event.char.lower()
-            gui_object[position[0]][position[1]].configure(text=event.char.lower())
+            gui_object[position[0]][position[1]].configure(text=event.char.upper())
             position = [position[0], position[1]+1]
     elif event.keysym == "BackSpace" and playing_game:
         guess_string = guess_string[:-1]
