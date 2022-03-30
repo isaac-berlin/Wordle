@@ -1,6 +1,7 @@
 from gui import *
 import random
 
+
 word_line = random.randint(0, 2314)
 with open("../words.txt") as fp:
     for line, word in enumerate(fp):
